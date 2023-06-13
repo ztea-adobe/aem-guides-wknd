@@ -10,6 +10,7 @@ This is a sample Adobe Experience Manager project for a full stack Sites impleme
 ## Live Demo
 
 View the live demo at [https://www.wknd.site/](https://www.wknd.site/)
+View Cloud Manager demo URL: https://publish-p114033-e1121781.adobeaemcloud.com/content/wknd/en.html
 
 ## Tutorial
 
