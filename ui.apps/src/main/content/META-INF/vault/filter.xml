@@ -4,5 +4,5 @@
     <filter root="/apps/wknd/components"/>
     <filter root="/apps/wknd/i18n"/>
     <filter root="/apps/msm/wknd_blueprint" mode="merge"/>
-    <filter root="/oak:index/damAssetLucene-9-custom-1"/>
+    <filter root="/oak:index/damAssetLucene-9-custom-2"/>
 </workspaceFilter>
