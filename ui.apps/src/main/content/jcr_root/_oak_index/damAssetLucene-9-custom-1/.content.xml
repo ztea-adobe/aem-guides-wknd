@@ -7,7 +7,8 @@
     evaluatePathRestrictions="{Boolean}true"
     includedPaths="[/content/dam]"
     maxFieldLength="{Long}100000"
-    type="lucene">
+    type="lucene"
+    tags="[visualSimilaritySearch]">
     <facets
         jcr:primaryType="nt:unstructured"
         secure="statistical"
