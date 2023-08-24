@@ -320,9 +320,10 @@ Bundle-DocURL:
                     <groupId>org.apache.jackrabbit</groupId>
                     <artifactId>filevault-package-maven-plugin</artifactId>
                     <extensions>true</extensions>
-                    <version>1.3.2</version>
+                    <version>1.0.4</version>
                     <configuration>
                         <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
+                        <allowIndexDefinitions>true</allowIndexDefinitions>
                         <properties>
                             <cloudManagerTarget>none</cloudManagerTarget>
                         </properties>
