@@ -26,6 +26,8 @@ import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -34,6 +36,8 @@ import java.util.Optional;
 
 @Model(adaptables = Resource.class)
 public class HelloWorldModel {
+
+    private static final Logger LOG = LoggerFactory.getLogger(HelloWorldModel.class);
 
     @ValueMapValue(name=PROPERTY_RESOURCE_TYPE, injectionStrategy=InjectionStrategy.OPTIONAL)
     @Default(values="No resourceType")
@@ -56,6 +60,9 @@ public class HelloWorldModel {
         message = "Hello World!\n"
             + "Resource type is: " + resourceType + "\n"
             + "Current page is:  " + currentPagePath + "\n";
+        LOG.error("Hello error");
+        LOG.warn("Hello warning");
+        LOG.info("Hello info");
     }
 
     public String getMessage() {
