@@ -1,0 +1,4 @@
+{
+    "org.apache.sling.commons.log.names": ["com.adobe.aem.guides.wknd.core"],
+    "org.apache.sling.commons.log.level": "debug"
+}
