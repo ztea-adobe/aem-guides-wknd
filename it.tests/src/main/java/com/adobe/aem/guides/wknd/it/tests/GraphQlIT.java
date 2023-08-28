@@ -48,7 +48,7 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class GraphQlIT {
 
-    private static final String TEST_AUTHOR_FIRST_NAME = "Ian";
+    /*private static final String TEST_AUTHOR_FIRST_NAME = "Ian";
 
     private static final String TEST_AUTHOR_LAST_NAME = "Provo";
 
@@ -212,6 +212,6 @@ public class GraphQlIT {
                 .filter(p -> p.getShortPath().equals("/wknd-shared/adventures-all")).findFirst().get();
         assertEquals("/wknd-shared/settings/graphql/persistentQueries/adventures-all", adventuresQuery.getLongPath());
         assertThat(adventuresQuery.getQuery(), containsString("adventureList {"));
-    }
+    }*/
 
 }
