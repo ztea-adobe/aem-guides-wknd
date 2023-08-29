@@ -58,7 +58,7 @@ public class HelloWorldModel {
                 .map(Page::getPath).orElse("");
 
         message = "xyz Hello World!\n"
-            + "Resource type is: " + resourceType + "\n"
+            + "Resource type is (modified): " + resourceType + "\n"
             + "Current page is:  " + currentPagePath + "\n";
         LOG.error("Hello error");
         LOG.warn("Hello warning");
