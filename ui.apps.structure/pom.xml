@@ -50,6 +50,10 @@
                         <filter><root>/apps/settings</root></filter>
 
                         <filter><root>/oak:index</root></filter>
+
+                        <filter><root>/apps/wcm/core</root></filter>
+                        <filter><root>/apps/wcm/core/resources</root></filter>
+                        <filter><root>/apps/wcm/core/resources/languages</root></filter>
                     </filters>
                 </configuration>
             </plugin>
