@@ -7,11 +7,23 @@
         jcr:primaryType="nt:unstructured"
         country="*"
         defaultCountry="ar_ae"
-        language="Arabic 123"/>
+        language="Arabic"/>
     <ar_ae
         jcr:primaryType="nt:unstructured"
         country="United Arab Emirates"
-        language="Arabic 321"/>
+        language="Arabic"/>
+    <hy
+        jcr:primaryType="nt:unstructured"
+        country="Armenia"
+        language="Armenian"/>
+    <tl
+        jcr:primaryType="nt:unstructured"
+        country="Philippines"
+        language="Tagalog"/>
+    <km
+        jcr:primaryType="nt:unstructured"
+        country="Cambodia"
+        language="Cambodian (Khmer)"/>
     <ar_bh
         jcr:primaryType="nt:unstructured"
         country="Bahrain"
