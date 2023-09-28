@@ -25,6 +25,11 @@ RewriteCond %{REQUEST_URI} .*\.html$
 #RewriteCond %{REQUEST_URI} !/_jcr_content/
 RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
 
+
+# Third language rule set
+RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv|.json)$
+RewriteRule ^/en/(.*)$ /content/wknd/language-masters/en/$1.html [PT,L,NC]
+
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
 RewriteCond %{REQUEST_URI} !^/content
