@@ -21,6 +21,12 @@ RewriteRule ^(/)$ /us/en.html [R=301,L,E=cdncache]
 # remove any trailing slash, if it's there.
 RewriteRule ^(.+)/$ $1
 
+#Remove the html extension
+RewriteCond %{REQUEST_URI} .*\.html$
+#RewriteCond %{REQUEST_URI} !^/content/experience-fragments/mysite/(.*)
+#RewriteCond %{REQUEST_URI} !/_jcr_content/
+RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
+
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
 RewriteCond %{REQUEST_URI} !^/content
