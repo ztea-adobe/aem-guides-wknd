@@ -30,7 +30,7 @@ RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
 #Handle the landing page -- is this duplicated by above??
 RewriteRule ^/$ /en/ [R=301,L]
 #Mask the /content/geometrixx-outdoors path
-RewriteRule ^/content/wknd/us/(.*)(\.html)?$ $1 [NE,L,R=301]
+RewriteRule ^/content/wknd/(.*)(\.html)?$ $1 [NE,L,R=301]
 
 #Append the .html for those URL's ending with / before sending to publisher
 RewriteCond %{REQUEST_URI} !^/$
