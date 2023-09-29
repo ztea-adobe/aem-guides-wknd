@@ -32,6 +32,10 @@ RewriteRule ^/$ /en/ [R=301,L]
 #Mask the /content/geometrixx-outdoors path
 RewriteRule ^/content/wknd/language-masters/(.*)(\.html)?$ $1 [NE,L,R=301]
 
+#Append the .html for those URL's ending with / before sending to publisher
+RewriteCond %{REQUEST_URI} !^/$
+RewriteRule ^/(.*)/$ /$1.html [PT,L,QSA]
+
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
 RewriteCond %{REQUEST_URI} !^/content
