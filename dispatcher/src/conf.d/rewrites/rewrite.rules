@@ -10,17 +10,18 @@ Include conf.d/rewrites/default_rewrite.rules
 # make sure the root site redirects are cache on CDN to avoid origin round-trip
 Header always set Cache-Control "max-age=300,stale-while-revalidate=43200,stale-if-error=43200" env=cdncache
 
-# redirect traffic from www to http home page
+# OOTB -- redirect traffic from www to http home page
 #RewriteCond %{HTTP_HOST} www.wknd.site [NC]
 #RewriteRule ^(.*)$ https://wknd.site%{REQUEST_URI} [R=301,L,E=cdncache]
 
 # rewrite for root redirect
 RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
-RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/us/en.html [PT,L]
+##RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/us/en.html [PT,L]
+RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/language-masters/en.html [PT,L]
 
-# redirect all root traffic to US home page
-RewriteCond %{REQUEST_URI} ^/?$
-RewriteRule ^(/)$ /us/en.html [R=301,L,E=cdncache]
+### OOTB -- redirect all root traffic to US home page
+#RewriteCond %{REQUEST_URI} ^/?$
+#RewriteRule ^(/)$ /us/en.html [R=301,L,E=cdncache]
 
 # remove any trailing slash, if it's there.
 RewriteRule ^(.+)/$ $1
@@ -34,7 +35,8 @@ RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
 #Handle the landing page -- is this duplicated by above??
 RewriteRule ^/$ /en/ [R=301,L]
 #Mask the /content/geometrixx-outdoors path
-RewriteRule ^/content/wknd/(.*)(\.html)?$ $1 [NE,L,R=301]
+##RewriteRule ^/content/wknd/(.*)(\.html)?$ $1 [NE,L,R=301]
+RewriteRule ^/content/wknd/language-masters/(.*)(\.html)?$ $1 [NE,L,R=301]
 
 #Append the .html for those URL's ending with / before sending to publisher
 RewriteCond %{REQUEST_URI} !^/$
@@ -42,8 +44,10 @@ RewriteRule ^/(.*)/$ /$1.html [PT,L,QSA]
 
 #Rewrite rules to cover languages homepage shortening
 RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
-RewriteRule ^/content/wknd/us/en/(.*)$ https://%{SERVER_NAME}/en/$1 [R,L]
-RewriteRule ^/en$ /content/wknd/us/en.html [PT,L,NC]
+##RewriteRule ^/content/wknd/us/en/(.*)$ https://%{SERVER_NAME}/en/$1 [R,L]
+##RewriteRule ^/en$ /content/wknd/us/en.html [PT,L,NC]
+RewriteRule ^/content/wknd/language-masters/en/(.*)$ https://%{SERVER_NAME}/en/$1 [R,L]
+RewriteRule ^/en$ /content/wknd/language-masters/en.html [PT,L,NC]
 RewriteRule ^/content/wknd/es/es/(.*)$ https://%{SERVER_NAME}/es/$1 [R,L]
 RewriteRule ^/es$ /content/wknd/es/es.html [PT,L,NC]
 RewriteRule ^/content/wknd/us/vi/(.*)$ https://%{SERVER_NAME}/vi/$1 [R,L]
@@ -52,13 +56,15 @@ RewriteRule ^/content/wknd/us/zh/(.*)$ https://%{SERVER_NAME}/zh/$1 [R,L]
 RewriteRule ^/zh$ /content/wknd/us/zh.html [PT,L,NC]
 
 RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv)$
-RewriteRule ^/content/wknd/us/en/(.*)$ /en/$1 [R,L]
+##RewriteRule ^/content/wknd/us/en/(.*)$ /en/$1 [R,L]
+RewriteRule ^/content/wknd/language-masters/en/(.*)$ /$1 [R,L]
 RewriteRule ^/content/wknd/es/es/(.*)$ /es/$1 [L,R=301]
 RewriteRule ^/content/wknd/us/vi/(.*)$ /vi/$1 [L,R=301]
 RewriteRule ^/content/wknd/us/zh/(.*)$ /zh/$1 [L,R=301]
 
 RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv|.json)$
-RewriteRule ^/en/(.*)$ /content/wknd/us/en/$1.html [PT,L,NC]
+##RewriteRule ^/en/(.*)$ /content/wknd/us/en/$1.html [PT,L,NC]
+RewriteRule ^/en/(.*)$ /content/wknd/language-masters/en/$1.html [PT,L,NC]
 RewriteRule ^/es/(.*)$ /content/wknd/es/es/$1.html [PT,L,NC]
 RewriteRule ^/vi/(.*)$ /content/wknd/us/vi/$1.html [PT,L,NC]
 RewriteRule ^/zh/(.*)$ /content/wknd/us/zh/$1.html [PT,L,NC]
