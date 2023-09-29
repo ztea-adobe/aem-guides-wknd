@@ -11,8 +11,12 @@ Include conf.d/rewrites/default_rewrite.rules
 Header always set Cache-Control "max-age=300,stale-while-revalidate=43200,stale-if-error=43200" env=cdncache
 
 # redirect traffic from www to http home page
-RewriteCond %{HTTP_HOST} www.wknd.site [NC]
-RewriteRule ^(.*)$ https://wknd.site%{REQUEST_URI} [R=301,L,E=cdncache]
+#RewriteCond %{HTTP_HOST} www.wknd.site [NC]
+#RewriteRule ^(.*)$ https://wknd.site%{REQUEST_URI} [R=301,L,E=cdncache]
+
+# rewrite for root redirect
+RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
+RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/us/en.html [PT,L]
 
 # redirect all root traffic to US home page
 RewriteCond %{REQUEST_URI} ^/?$
@@ -39,17 +43,17 @@ RewriteRule ^/(.*)/$ /$1.html [PT,L,QSA]
 #Rewrite rules to cover languages homepage shortening
 RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
 RewriteRule ^/content/wknd/us/en/(.*)$ https://%{SERVER_NAME}/en/$1 [R,L]
-RewriteRule ^/en$ /content/wknd/us/en/home.html [PT,L,NC]
+RewriteRule ^/en$ /content/wknd/us/en.html [PT,L,NC]
 RewriteRule ^/content/wknd/es/es/(.*)$ https://%{SERVER_NAME}/es/$1 [R,L]
-RewriteRule ^/es$ /content/wknd/es/es/home.html [PT,L,NC]
+RewriteRule ^/es$ /content/wknd/es/es.html [PT,L,NC]
 RewriteRule ^/content/wknd/us/vi/(.*)$ https://%{SERVER_NAME}/vi/$1 [R,L]
-RewriteRule ^/vi$ /content/wknd/us/vi/home.html [PT,L,NC]
+RewriteRule ^/vi$ /content/wknd/us/vi.html [PT,L,NC]
 RewriteRule ^/content/wknd/us/zh/(.*)$ https://%{SERVER_NAME}/zh/$1 [R,L]
-RewriteRule ^/zh$ /content/wknd/us/zh/home.html [PT,L,NC]
+RewriteRule ^/zh$ /content/wknd/us/zh.html [PT,L,NC]
 
 RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv)$
 RewriteRule ^/content/wknd/us/en/(.*)$ /en/$1 [R,L]
-RewriteRule ^/content/wknd/us/es/(.*)$ /es/$1 [L,R=301]
+RewriteRule ^/content/wknd/es/es/(.*)$ /es/$1 [L,R=301]
 RewriteRule ^/content/wknd/us/vi/(.*)$ /vi/$1 [L,R=301]
 RewriteRule ^/content/wknd/us/zh/(.*)$ /zh/$1 [L,R=301]
 
