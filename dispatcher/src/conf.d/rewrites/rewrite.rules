@@ -39,6 +39,7 @@ RewriteRule ^/$ /en/ [R=301,L]
 ##RewriteRule ^/content/wknd/(.*)(\.html)?$ $1 [NE,L,R=301]
 ## TESTING NEW RULE
 RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
+RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 RewriteRule ^/content/wknd/language-masters/(.*)(\.html)?$ $1 [NE,L,R=301]
 
 #Append the .html for those URL's ending with / before sending to publisher
@@ -48,10 +49,12 @@ RewriteRule ^/content/wknd/language-masters/(.*)(\.html)?$ $1 [NE,L,R=301]
 
 #Rewrite rules to cover languages homepage shortening
 RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
+RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 ##RewriteRule ^/content/wknd/us/en/(.*)$ https://%{SERVER_NAME}/en/$1 [R,L]
 ##RewriteRule ^/en$ /content/wknd/us/en.html [PT,L,NC]
 ### Multi-lingual rule
 RewriteRule ^/content/wknd/language-masters/(.*)$ https://%{SERVER_NAME}/$1 [R,L]
+RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
 #RewriteRule ^/content/wknd/language-masters/en/(.*)$ https://%{SERVER_NAME}/en/$1 [R,L]
 #RewriteRule ^/en$ /content/wknd/language-masters/en.html [PT,L,NC]
@@ -66,6 +69,7 @@ RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
 #RewriteRule ^/fr$ /content/wknd/language-masters/fr.html [PT,L,NC]
 
 RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv)$
+RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 ### Multi-lingual rule
 RewriteRule ^/content/wknd/language-masters/(.*)$ /$1 [R,L]
 #RewriteRule ^/content/wknd/language-masters/en/(.*)$ /$1 [R,L]
@@ -76,6 +80,7 @@ RewriteRule ^/content/wknd/language-masters/(.*)$ /$1 [R,L]
 #RewriteRule ^/content/wknd/language-masters/fr/(.*)$ /$1 [L,R=301]
 
 RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv|.json)$
+RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 ### Multi-lingual rule
 RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
 #RewriteRule ^/en/(.*)$ /content/wknd/language-masters/en/$1.html [PT,L,NC]
@@ -100,5 +105,3 @@ RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
 RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
 RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/$1 [PT,L]
-
-RewriteRule ^.*/.*coreimg.*/.*.png /content/wknd/${REQUEST_URI} [PT,L]
