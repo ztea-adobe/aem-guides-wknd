@@ -29,10 +29,12 @@ RewriteRule ^(.+)/$ $1
 #Remove the html extension
 RewriteCond %{REQUEST_URI} .*\.html$
 ##TEMP TESTING IF WKND LOGO WILL RETURN
-RewriteCond %{REQUEST_URI} !^/content/experience-fragments
 #RewriteCond %{REQUEST_URI} !^/content/experience-fragments/wknd/(.*)
 #RewriteCond %{REQUEST_URI} !/_jcr_content/
 RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
+
+#Custom WKND Rule to redirect http file calls to be HTTPS
+RewriteRule ^(.*).png$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
 
 #Handle the landing page -- is this duplicated by above??
 RewriteRule ^/$ /en/ [R=301,L]
