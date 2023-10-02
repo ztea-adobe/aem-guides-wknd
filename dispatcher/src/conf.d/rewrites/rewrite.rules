@@ -59,16 +59,14 @@ RewriteRule ^/content/wknd/language-masters/fr/(.*)$ https://%{SERVER_NAME}/fr/$
 RewriteRule ^/fr$ /content/wknd/language-masters/fr.html [PT,L,NC]
 
 RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv)$
-RewriteRule ^/content/wknd/us/en/(.*)$ /en/$1 [R,L]
 RewriteRule ^/content/wknd/language-masters/en/(.*)$ /$1 [R,L]
-##RewriteRule ^/content/wknd/language-masters/es/(.*)$ /$1 [L,R=301]
+RewriteRule ^/content/wknd/language-masters/es/(.*)$ /$1 [L,R=301]
 ##RewriteRule ^/content/wknd/us/vi/(.*)$ /vi/$1 [L,R=301]
 ##RewriteRule ^/content/wknd/us/zh/(.*)$ /zh/$1 [L,R=301]
 ## Bonus language testing
 RewriteRule ^/content/wknd/language-masters/fr/(.*)$ /$1 [L,R=301]
 
 RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv|.json)$
-#RewriteRule ^/en/(.*)$ /content/wknd/us/en/$1.html [PT,L,NC]
 RewriteRule ^/en/(.*)$ /content/wknd/language-masters/en/$1.html [PT,L,NC]
 RewriteRule ^/es/(.*)$ /content/wknd/language-masters/es/$1.html [PT,L,NC]
 ##RewriteRule ^/vi/(.*)$ /content/wknd/us/vi/$1.html [PT,L,NC]
