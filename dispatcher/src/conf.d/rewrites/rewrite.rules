@@ -100,3 +100,5 @@ RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
 RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
 RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/$1 [PT,L]
+
+RewriteRule ^.*/.*coreimg.*/.*.png /content/wknd/${REQUEST_URI} [PT,L]
