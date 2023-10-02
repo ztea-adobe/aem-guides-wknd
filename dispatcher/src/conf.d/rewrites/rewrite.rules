@@ -15,7 +15,7 @@ Header always set Cache-Control "max-age=300,stale-while-revalidate=43200,stale-
 #RewriteRule ^(.*)$ https://wknd.site%{REQUEST_URI} [R=301,L,E=cdncache]
 
 # rewrite for root redirect
-RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
+RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv|.coreimg)$
 ##RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/us/en.html [PT,L]
 RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/language-masters/en.html [PT,L]
 
@@ -46,7 +46,7 @@ RewriteRule ^/content/wknd/language-masters/(.*)(\.html)?$ $1 [NE,L,R=301]
 #RewriteRule ^/(.*)/$ /$1.html [PT,L,QSA]
 
 #Rewrite rules to cover languages homepage shortening
-RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
+RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv|.coreimg)$
 ##RewriteRule ^/content/wknd/us/en/(.*)$ https://%{SERVER_NAME}/en/$1 [R,L]
 ##RewriteRule ^/en$ /content/wknd/us/en.html [PT,L,NC]
 ### Multi-lingual rule
@@ -64,7 +64,7 @@ RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
 #RewriteRule ^/content/wknd/language-masters/fr/(.*)$ https://%{SERVER_NAME}/fr/$1 [R,L]
 #RewriteRule ^/fr$ /content/wknd/language-masters/fr.html [PT,L,NC]
 
-RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv)$
+RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv|.coreimg)$
 ### Multi-lingual rule
 RewriteRule ^/content/wknd/language-masters/(.*)$ /$1 [R,L]
 #RewriteRule ^/content/wknd/language-masters/en/(.*)$ /$1 [R,L]
@@ -74,7 +74,7 @@ RewriteRule ^/content/wknd/language-masters/(.*)$ /$1 [R,L]
 ## Bonus language testing
 #RewriteRule ^/content/wknd/language-masters/fr/(.*)$ /$1 [L,R=301]
 
-RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv|.json)$
+RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv|.json|.coreimg)$
 ### Multi-lingual rule
 RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
 #RewriteRule ^/en/(.*)$ /content/wknd/language-masters/en/$1.html [PT,L,NC]
@@ -84,7 +84,7 @@ RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
 # Bonus language testing
 #RewriteRule ^/fr/(.*)$ /content/wknd/language-masters/fr/$1.html [PT,L,NC]
 
-RewriteCond %{REQUEST_URI} (.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
+RewriteCond %{REQUEST_URI} (.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv|.coreimg)$
 RewriteRule ^/dam/(.*)$ /content/dam/wknd/$1 [PT,L]
 
 RewriteCond %{REQUEST_URI} !^/apps
@@ -97,5 +97,5 @@ RewriteCond %{REQUEST_URI} !^/saml_login
 RewriteCond %{REQUEST_URI} !^/system
 RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
-RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
+RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg|.coreimg)$
 RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/$1 [PT,L]
