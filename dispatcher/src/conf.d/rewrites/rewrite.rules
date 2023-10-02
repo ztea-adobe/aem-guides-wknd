@@ -28,6 +28,8 @@ RewriteRule ^(.+)/$ $1
 
 #Remove the html extension
 RewriteCond %{REQUEST_URI} .*\.html$
+##TEMP TESTING IF WKND LOGO WILL RETURN
+RewriteCond %{REQUEST_URI} !^/content/experience-fragments
 #RewriteCond %{REQUEST_URI} !^/content/experience-fragments/wknd/(.*)
 #RewriteCond %{REQUEST_URI} !/_jcr_content/
 RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
@@ -40,8 +42,8 @@ RewriteRule ^/content/wknd/language-masters/(.*)(\.html)?$ $1 [NE,L,R=301]
 
 #Append the .html for those URL's ending with / before sending to publisher
 ## UPDATE NOTE -- This rule is never satisfied MARK FOR REMOVAL
-RewriteCond %{REQUEST_URI} !^/$
-RewriteRule ^/(.*)/$ /$1.html [PT,L,QSA]
+#RewriteCond %{REQUEST_URI} !^/$
+#RewriteRule ^/(.*)/$ /$1.html [PT,L,QSA]
 
 #Rewrite rules to cover languages homepage shortening
 RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
