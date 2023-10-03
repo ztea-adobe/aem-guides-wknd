@@ -1,0 +1,9 @@
+{
+  "resource.resolver.mapping": [
+    "/:/",
+    "/content/wknd/language-masters:/",
+    "/content/wknd/language-masters/:/",
+    "/content/dam/wknd/(.*)</dam/$1"
+  ],
+  "resource.resolver.map.location": "/etc/map.publish"
+}
