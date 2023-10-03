@@ -18,6 +18,7 @@ RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
 
 #Handle the landing page
 RewriteRule ^/$ /en/ [R=301,L]
+RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 RewriteRule ^/content/wknd/language-masters/(.*)(\.html)?$ $1 [NE,L,R=301]
 
 #Append the .html for those URL's ending with / before sending to publisher
