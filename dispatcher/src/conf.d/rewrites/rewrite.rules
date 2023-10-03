@@ -6,7 +6,7 @@ RewriteRule (.*) https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
 # Rewrite for root redirect
 RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
 ##Custom, do not touch coreimg
-RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
+#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/language-masters/en.html [PT,L]
 
 # remove any trailing slash, if it's there.
@@ -18,7 +18,7 @@ RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
 
 #Handle the landing page
 RewriteRule ^/$ /en/ [R=301,L]
-RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
+#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 RewriteRule ^/content/wknd/language-masters/(.*)(\.html)?$ $1 [NE,L,R=301]
 
 #Append the .html for those URL's ending with / before sending to publisher
@@ -27,18 +27,18 @@ RewriteRule ^/(.*)/$ /$1.html [PT,L,QSA]
 
 #Rewrite rules to cover languages homepage shortening
 RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
-RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
+#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 RewriteRule ^/content/wknd/language-masters/(.*)$ https://%{SERVER_NAME}/$1 [R,L]
 
-RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
+#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
 
 RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv)$
-RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
+#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 RewriteRule ^/content/wknd/language-masters/(.*)$ /$1 [R,L]
 
 RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv|.json)$
-RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
+#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
 
 RewriteCond %{REQUEST_URI} (.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
