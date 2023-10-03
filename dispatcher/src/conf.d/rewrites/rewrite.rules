@@ -38,7 +38,7 @@ RewriteCond %{REQUEST_URI} .*\.html$
 #RewriteCond %{REQUEST_URI} !/_jcr_content/
 RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
 
-#Handle the landing page -- is this duplicated by above??
+#Handle the landing page -- is this duplicated by above?? Mark for removal
 RewriteRule ^/$ /en/ [R=301,L]
 #Mask the /content/geometrixx-outdoors path
 ##RewriteRule ^/content/wknd/(.*)(\.html)?$ $1 [NE,L,R=301]
@@ -59,7 +59,7 @@ RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
 ##RewriteRule ^/en$ /content/wknd/us/en.html [PT,L,NC]
 ### Multi-lingual rule
 RewriteRule ^/content/wknd/language-masters/(.*)$ https://%{SERVER_NAME}/$1 [R,L]
-RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
+#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
 RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
 #RewriteRule ^/content/wknd/language-masters/en/(.*)$ https://%{SERVER_NAME}/en/$1 [R,L]
 #RewriteRule ^/en$ /content/wknd/language-masters/en.html [PT,L,NC]
