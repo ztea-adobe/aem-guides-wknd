@@ -14,18 +14,11 @@ RewriteRule ^(.+)/$ $1
 
 #Remove the html extension
 RewriteCond %{REQUEST_URI} .*\.html$
-#RewriteCond %{REQUEST_URI} !^/content/experience-fragments/wknd/(.*)
-#RewriteCond %{REQUEST_URI} !/_jcr_content/
 RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
 
 #Handle the landing page
 RewriteRule ^/$ /en/ [R=301,L]
-#Mask the /content/geometrixx-outdoors path
 RewriteRule ^/content/wknd/language-masters/(.*)(\.html)?$ $1 [NE,L,R=301]
-
-#Replace the .html with /
-#RewriteCond %{REQUEST_URI} \.html$
-#RewriteRule ^/(.*).html$ /$1/ [R=301,L,QSA]
 
 #Append the .html for those URL's ending with / before sending to publisher
 RewriteCond %{REQUEST_URI} !^/$
