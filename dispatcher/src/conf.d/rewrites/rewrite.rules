@@ -5,57 +5,18 @@
 # add rewrite rules to this file but you should still include
 # the default rewrite rules.
 
-#Include conf.d/rewrites/default_rewrite.rules
+Include conf.d/rewrites/default_rewrite.rules
 
 # make sure the root site redirects are cache on CDN to avoid origin round-trip
 Header always set Cache-Control "max-age=300,stale-while-revalidate=43200,stale-if-error=43200" env=cdncache
 
-# This ruleset forces https in the end users browser
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteCond %{REQUEST_URI} !^/dispatcher/invalidate.cache
-RewriteRule (.*) https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
+# redirect traffic from www to http home page
+RewriteCond %{HTTP_HOST} www.wknd.site [NC]
+RewriteRule ^(.*)$ https://wknd.site%{REQUEST_URI} [R=301,L,E=cdncache]
 
-# Rewrite for root redirect
-RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
-##Custom, do not touch coreimg
-#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
-RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/language-masters/en.html [PT,L]
-
-# remove any trailing slash, if it's there.
-RewriteRule ^(.+)/$ $1
-
-#Remove the html extension
-RewriteCond %{REQUEST_URI} .*\.html$
-RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
-
-#Handle the landing page
-RewriteRule ^/$ /en/ [R=301,L]
-#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
-RewriteRule ^/content/wknd/language-masters/(.*)(\.html)?$ $1 [NE,L,R=301]
-
-#Append the .html for those URL's ending with / before sending to publisher
-RewriteCond %{REQUEST_URI} !^/$
-RewriteRule ^/(.*)/$ /$1.html [PT,L,QSA]
-
-#Rewrite rules to cover languages homepage shortening
-RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
-#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
-RewriteRule ^/content/wknd/language-masters/(.*)$ https://%{SERVER_NAME}/$1 [R,L]
-
-#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
-RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
-
-RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv)$
-#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
-RewriteRule ^/content/wknd/language-masters/(.*)$ /$1 [R,L]
-
-RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv|.json)$
-#RewriteCond %{REQUEST_URI} !(.*coreimg.*)$
-RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
-
-RewriteCond %{REQUEST_URI} (.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
-RewriteRule ^/dam/(.*)$ /content/dam/wknd/$1 [PT,L]
-
+# redirect all root traffic to US home page
+RewriteCond %{REQUEST_URI} ^/?$
+RewriteRule ^(/)$ /us/en.html [R=301,L,E=cdncache]
 
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
@@ -67,5 +28,5 @@ RewriteCond %{REQUEST_URI} !^/saml_login
 RewriteCond %{REQUEST_URI} !^/system
 RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
-RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv|.xml)$
-RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/language-masters/$1 [PT,L]
+RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
+RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/$1 [PT,L]
