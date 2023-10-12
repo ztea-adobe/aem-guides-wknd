@@ -37,6 +37,12 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54WT644G" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Universal Editor requirement -->
+  <script src="https://cdn.jsdelivr.net/gh/adobe/universal-editor-cors/dist/universal-editor-embedded.js"
+    async></script>
+
+
   <sly data-sly-test.isRedirectPage="${page.redirectTarget && (wcmmode.edit || wcmmode.preview)}"
     data-sly-call="${redirect.redirect @ redirectTarget = page.redirectTarget}"></sly>
   <sly data-sly-test="${!isRedirectPage}">
