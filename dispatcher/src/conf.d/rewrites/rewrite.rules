@@ -16,7 +16,7 @@ RewriteCond %{REQUEST_URI} !^/dispatcher/invalidate.cache
 RewriteRule (.*) https://%{SERVER_NAME}%{REQUEST_URI} [L,R=301]
 
 # Rewrite for root redirect
-RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
+RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv|.jpeg)$
 RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/language-masters/en.html [PT,L]
 
 # remove any trailing slash, if it's there.
@@ -29,7 +29,7 @@ RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
 #Handle the landing page
 RewriteRule ^/$ /en/ [R=301,L]
 
-RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
+RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv|.jpeg)$
 RewriteRule ^/content/wknd/language-masters/(.*)(\.html)?$ $1 [NE,L,R=301]
 
 #Append the .html for those URL's ending with / before sending to publisher
@@ -37,7 +37,7 @@ RewriteCond %{REQUEST_URI} !^/$
 RewriteRule ^/(.*)/$ /$1.html [PT,L,QSA]
 
 #Rewrite rules to cover languages homepage shortening
-RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
+RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv|.jpeg)$
 RewriteRule ^/content/wknd/language-masters/(.*)$ https://%{SERVER_NAME}/$1 [R,L]
 
 #OCT16 -- Add above Cond to here as well
@@ -51,7 +51,7 @@ RewriteRule ^/content/wknd/language-masters/(.*)$ https://%{SERVER_NAME}/$1 [R,L
 #RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
 
 #DAM rewrite rule
-RewriteCond %{REQUEST_URI} (.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
+RewriteCond %{REQUEST_URI} (.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv|.jpeg)$
 RewriteRule ^/dam/(.*)$ /content/dam/wknd/$1 [PT,L]
 
 
@@ -65,5 +65,5 @@ RewriteCond %{REQUEST_URI} !^/saml_login
 RewriteCond %{REQUEST_URI} !^/system
 RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
-RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv|.xml)$
+RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv|.xml|.jpeg)$
 RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/language-masters/$1 [PT,L]
