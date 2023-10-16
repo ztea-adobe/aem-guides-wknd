@@ -3,6 +3,7 @@
     "/:/",
     "/content/wknd/language-masters:/",
     "/content/wknd/language-masters/:/",
+    "/language-masters/(.*):/content/",
     "/content/dam/wknd/(.*)</dam/$1"
   ],
   "resource.resolver.map.location": "/etc/map.publish"
