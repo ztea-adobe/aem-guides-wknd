@@ -29,6 +29,7 @@ RewriteRule ^(.*).html$ https://%{SERVER_NAME}$1 [R=301,L,QSA]
 #Handle the landing page
 RewriteRule ^/$ /en/ [R=301,L]
 
+RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
 RewriteRule ^/content/wknd/language-masters/(.*)(\.html)?$ $1 [NE,L,R=301]
 
 #Append the .html for those URL's ending with / before sending to publisher
@@ -37,7 +38,6 @@ RewriteRule ^/(.*)/$ /$1.html [PT,L,QSA]
 
 #Rewrite rules to cover languages homepage shortening
 RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
-
 RewriteRule ^/content/wknd/language-masters/(.*)$ https://%{SERVER_NAME}/$1 [R,L]
 
 #OCT16 -- Add above Cond to here as well
