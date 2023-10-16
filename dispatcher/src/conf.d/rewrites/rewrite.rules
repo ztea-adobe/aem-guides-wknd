@@ -10,6 +10,9 @@
 # make sure the root site redirects are cache on CDN to avoid origin round-trip
 Header always set Cache-Control "max-age=300,stale-while-revalidate=43200,stale-if-error=43200" env=cdncache
 
+RewriteCond %{REQUEST_URI} (.*coreimg.*)$
+RewriteRule ^(.*)$ /content/$1 [R=301,L]
+
 # This ruleset forces https in the end users browser
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteCond %{REQUEST_URI} !^/dispatcher/invalidate.cache
@@ -51,8 +54,7 @@ RewriteRule ^/content/wknd/language-masters/(.*)$ https://%{SERVER_NAME}/$1 [R,L
 #RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
 
 
-RewriteCond %{REQUEST_URI} (.*coreimg.*)$
-RewriteRule ^(.*)$ /content/$1 [R=301,L]
+
 
 #DAM rewrite rule
 RewriteCond %{REQUEST_URI} (.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv|.jpeg)$
