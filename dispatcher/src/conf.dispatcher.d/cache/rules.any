@@ -8,7 +8,7 @@ $include "./default_rules.any"
 
 #CUSTOM - do not cache anything
 # Default allow all items to cache
-/1001 {
+/1400 {
 	/glob "*"
 	/type "disallow"
 }
