@@ -44,8 +44,8 @@ RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv|.jpeg)$
 RewriteRule ^/content/wknd/language-masters/(.*)$ https://%{SERVER_NAME}/$1 [R,L]
 
 #OCT16 -- Add above Cond to here as well
-#RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
-#RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
+RewriteCond %{REQUEST_URI} !(.pdf|.tiff|.jpe?g|.png|.svg|.mp4|.xlsx|.csv)$
+RewriteRule ^/(.*)$ /content/wknd/language-masters/$1.html [PT,L,NC]
 
 #RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg|.mp4|.pdf|.tiff|.xlsx|.csv)$
 #RewriteRule ^/content/wknd/language-masters/(.*)$ /$1 [L,R=301]
