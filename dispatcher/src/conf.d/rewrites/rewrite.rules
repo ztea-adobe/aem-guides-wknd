@@ -10,15 +10,6 @@ Include conf.d/rewrites/default_rewrite.rules
 # make sure the root site redirects are cache on CDN to avoid origin round-trip
 Header always set Cache-Control "max-age=3,stale-while-revalidate=43200,stale-if-error=43200" env=cdncache
 
-# This ruleset forces https in the end users browser
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteCond %{REQUEST_URI} !^/dispatcher/invalidate.cache
-RewriteRule ^(.*)$ https://${SERVER_NAME}%{REQUEST_URI} [R=301,L,E=cdncache]
-
-# redirect all root traffic to US home page
-RewriteCond %{REQUEST_URI} ^/?$
-RewriteRule ^(/)$ /content/wknd/language-masters/en.html [R=301,L,E=cdncache]
-
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
 RewriteCond %{REQUEST_URI} !^/content
