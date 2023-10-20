@@ -3,4 +3,3 @@
     jcr:primaryType="sling:Mapping"
     sling:internalRedirect="[/content/wknd/language-masters/en/(.*?).html,/content/wknd/language-masters/(en?.*).html]"
     sling:match="https://publish-p120603-e1209133.adobeaemcloud.com/$1.html"/>
-</jcr:root>
