@@ -11,9 +11,9 @@ Include conf.d/rewrites/default_rewrite.rules
 Header always set Cache-Control "max-age=3,stale-while-revalidate=43200,stale-if-error=43200" env=cdncache
 
 #Rewrite rule to redirect the full path to short path for all the pages under en
-RewriteCond %{REQUEST_URI} (.html)$
-RewriteCond %{REQUEST_URI} !(.jpe?g|.png|.svg|gif)$
+RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg|gif)$
 RewriteCond %{REQUEST_URI} !^/content/dam
+RewriteCond %{REQUEST_URI} !(.*coreimg.*)
 RewriteRule ^/content/wknd/language-masters/en/(.+).html https://%{SERVER_NAME}/$1 [R=301,L,NC,NE]
 
 RewriteRule ^/content/wknd/language-masters/en.html https://%{SERVER_NAME} [R=301,L,NC,NE]
@@ -37,11 +37,12 @@ RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
 RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/language-masters/en/$1 [PT,L]
 
 #Only for coreimg files under page root
-RewriteCond %{REQUEST_URI} (.*coreimg.*)
-RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/language-masters/en/$1 [PT,L]
+#RewriteCond %{REQUEST_URI} (.*coreimg.*)
+#RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/language-masters/en/$1 [PT,L]
 
 ## Add .html extension where there is no extension
 RewriteCond %{REQUEST_METHOD} !^POST
 RewriteCond %{REQUEST_URI} !/$
 RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg)$
+RewriteCond %{REQUEST_URI} !(.*coreimg.*)
 RewriteRule ^/(.*)$ /content/wknd/language-masters/en/$1.html [PT,L]
