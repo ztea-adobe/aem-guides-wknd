@@ -37,4 +37,5 @@ RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/language-masters/en/$1 [PT,L
 ## Add .html extension where there is no extension
 RewriteCond %{REQUEST_METHOD} !^POST
 RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg)$
 RewriteRule ^/(.*)$ /content/wknd/language-masters/en/$1.html [PT,L]
