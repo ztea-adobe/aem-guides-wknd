@@ -31,7 +31,12 @@ RewriteCond %{REQUEST_URI} !^/saml_login
 RewriteCond %{REQUEST_URI} !^/system
 RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
+RewriteCond %{REQUEST_URI} !(.*coreimg.*)
 RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
+RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/language-masters/en/$1 [PT,L]
+
+#Only for coreimg files under page root
+RewriteCond %{REQUEST_URI} (.*coreimg.*)
 RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/language-masters/en/$1 [PT,L]
 
 ## Add .html extension where there is no extension
