@@ -13,6 +13,7 @@ Header always set Cache-Control "max-age=3,stale-while-revalidate=43200,stale-if
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
 RewriteCond %{REQUEST_URI} !^/content
+RewriteCond %{REQUEST_URI} !^/content/experience-fragments
 RewriteCond %{REQUEST_URI} !^/etc
 RewriteCond %{REQUEST_URI} !^/home
 RewriteCond %{REQUEST_URI} !^/libs
