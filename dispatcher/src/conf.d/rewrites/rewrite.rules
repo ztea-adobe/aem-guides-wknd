@@ -13,7 +13,7 @@ Header always set Cache-Control "max-age=3,stale-while-revalidate=43200,stale-if
 #Rewrite rule to redirect the full path to short path for all the pages under en
 RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg|gif)$
 RewriteCond %{REQUEST_URI} !^/content/dam
-RewriteCond %{REQUEST_URI} !(.*coreimg.*)
+RewriteCond %{REQUEST_URI} !^(.*)\.coreimg\.(.*)
 RewriteRule ^/content/wknd/language-masters/en/(.+).html https://%{SERVER_NAME}/$1 [R=301,L,NC,NE]
 
 RewriteRule ^/content/wknd/language-masters/en.html https://%{SERVER_NAME} [R=301,L,NC,NE]
@@ -32,7 +32,7 @@ RewriteCond %{REQUEST_URI} !^/saml_login
 RewriteCond %{REQUEST_URI} !^/system
 RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
-RewriteCond %{REQUEST_URI} !(.*coreimg.*)
+RewriteCond %{REQUEST_URI} !^(.*)\.coreimg\.(.*)
 RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
 RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/language-masters/en/$1 [PT,L]
 
@@ -44,5 +44,5 @@ RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/language-masters/en/$1 [PT,L
 RewriteCond %{REQUEST_METHOD} !^POST
 RewriteCond %{REQUEST_URI} !/$
 RewriteCond %{REQUEST_URI} !(.html|.jpe?g|.png|.svg)$
-RewriteCond %{REQUEST_URI} !(.*coreimg.*)
+RewriteCond %{REQUEST_URI} !^(.*)\.coreimg\.(.*)
 RewriteRule ^/(.*)$ /content/wknd/language-masters/en/$1.html [PT,L]
