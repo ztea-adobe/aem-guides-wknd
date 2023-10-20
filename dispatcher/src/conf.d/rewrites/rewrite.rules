@@ -15,7 +15,7 @@ RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg|gif)$
 RewriteCond %{REQUEST_URI} !^/content/dam
 RewriteRule ^/content/wknd/language-masters/en/(.+) https://%{SERVER_NAME}/$1 [R=301,L,NC,NE]
 
-RewriteRule ^/content/wknd/language-masters/en.html https://${SERVER_NAME} [R=301,L,NC,NE]
+RewriteRule ^/content/wknd/language-masters/en.html https://%{SERVER_NAME} [R=301,L,NC,NE]
 
 # rewrite for root redirect
 RewriteRule ^/?$ /content/wknd/language-masters/en.html [PT,L]
