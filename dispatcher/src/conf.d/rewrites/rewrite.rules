@@ -13,7 +13,7 @@ Header always set Cache-Control "max-age=3,stale-while-revalidate=43200,stale-if
 #Rewrite rule to redirect the full path to short path for all the pages under en
 RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg|gif)$
 RewriteCond %{REQUEST_URI} !^/content/dam
-RewriteRule ^/content/wknd/language-masters/en/(.+) https://%{SERVER_NAME}/$1 [R=301,L,NC,NE]
+RewriteRule ^/content/wknd/language-masters/en/(.+).html https://%{SERVER_NAME}/$1 [R=301,L,NC,NE]
 
 RewriteRule ^/content/wknd/language-masters/en.html https://%{SERVER_NAME} [R=301,L,NC,NE]
 
