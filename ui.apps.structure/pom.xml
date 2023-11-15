@@ -45,9 +45,12 @@
                         <filter><root>/apps/dam</root></filter>
                         <filter><root>/apps/wcm</root></filter>
                         <filter><root>/apps/msm</root></filter>
-
+                        
                         <!-- Immutable context-aware configurations -->
                         <filter><root>/apps/settings</root></filter>
+                        <filter><root>/apps/settings/mobile</root></filter>
+                        <filter><root>/apps/settings/mobile/groups</root></filter>
+                        <filter><root>/apps/emulators</root></filter>
 
                         <filter><root>/oak:index</root></filter>
 

@@ -3,6 +3,8 @@
     <filter root="/apps/wknd/clientlibs"/>
     <filter root="/apps/wknd/components"/>
     <filter root="/apps/wknd/i18n"/>
+    <filter root="/apps/wknd/emulators"/>
+    <filter root="/apps/settings/mobile/groups/custom-group"/>
     <filter root="/apps/msm/wknd_blueprint" mode="merge"/>
     <filter root="/oak:index/damAssetLucene-9-custom-2"/>
     <filter root="/apps/wknd/osgiconfig"/>
