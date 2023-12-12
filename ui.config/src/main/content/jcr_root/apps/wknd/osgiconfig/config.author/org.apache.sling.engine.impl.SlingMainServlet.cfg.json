@@ -1,5 +1,0 @@
-{
-  "sling.additional.response.headers": [
-    "X-Content-Type-Options=nosniff"
-  ]
-}

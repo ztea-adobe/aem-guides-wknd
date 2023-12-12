@@ -1,5 +1,16 @@
 # AEM WKND Sites Project
 
+## Adobe Experience Manager compatibility
+
+WKND versions are compatible with the following versions of Adobe Experience Manager:
+
+| AEM version            | WKND version |
+|:-----------------------|:------------------------------:|
+| AEM as a Cloud Service | 3.x                 |
+| 6.5 SP17               | 2.x, 3.x                       |
+
+## Released artifacts
+
 ![Maven CI](https://github.com/adobe/aem-guides-wknd/actions/workflows/maven.yml/badge.svg)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.adobe.aem.guides/aem-guides-wknd/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.adobe.aem.guides/aem-guides-wknd)
 
@@ -10,7 +21,6 @@ This is a sample Adobe Experience Manager project for a full stack Sites impleme
 ## Live Demo
 
 View the live demo at [https://www.wknd.site/](https://www.wknd.site/)
-View Cloud Manager demo URL: https://publish-p114033-e1121781.adobeaemcloud.com/content/wknd/en.html
 
 ## Tutorial
 
@@ -35,9 +45,6 @@ Pre-compiled AEM packages are available under the latest release for easy instal
 * [`aem-guides-wknd.all-x.x.x.zip`](https://github.com/adobe/aem-guides-wknd/releases/latest): AEM as a Cloud Service, default build
 * [`aem-guides-wknd.all-x.x.x-classic.zip`](https://github.com/adobe/aem-guides-wknd/releases/latest): AEM 6.5.x+
 
-
-
-
 ## How to build
 
 For **AEM as a Cloud Service SDK**: 
@@ -56,11 +63,11 @@ $ mvn clean install -PautoInstallSinglePackage -Pclassic
 
 ## System Requirements
 
-WKND Version | AEM as a Cloud Service | AEM 6.5   | Java SE | Maven
--------------|------------------------|-----------|---------|---------
-Latest (main branch)| Continual              | **6.5.13.0+** |  8, 11  | 3.3.9+
-[v1.1.0](https://github.com/adobe/aem-guides-wknd/releases/tag/aem-guides-wknd-1.1.0) | Continual | 6.5.10+ | 8, 11 | 3.3.9+
-[v1.0.0](https://github.com/adobe/aem-guides-wknd/releases/tag/aem-guides-wknd-1.0.0) | Continual | 6.5.4+ | 8, 11 | 3.3.9+
+WKND Version | AEM as a Cloud Service | AEM 6.5       | Java SE | Maven
+-------------|------------------------|---------------|---------|---------
+Latest (main branch)| Continual              | **6.5.17.0+** |  8, 11  | 3.3.9+
+[v1.1.0](https://github.com/adobe/aem-guides-wknd/releases/tag/aem-guides-wknd-1.1.0) | Continual | 6.5.10+       | 8, 11 | 3.3.9+
+[v1.0.0](https://github.com/adobe/aem-guides-wknd/releases/tag/aem-guides-wknd-1.0.0) | Continual | 6.5.4+        | 8, 11 | 3.3.9+
 
 Setup your local development environment for [AEM as a Cloud Service SDK](https://experienceleague.adobe.com/docs/experience-manager-learn/cloud-service/local-development-environment-set-up/overview.html) or for [older versions of AEM](https://experienceleague.adobe.com/docs/experience-manager-learn/foundation/development/set-up-a-local-aem-development-environment.html).
 
@@ -87,5 +94,3 @@ With Adobe Stock, you have access to more than 140 million high-quality, royalty
 
 * This project was generated using the [AEM Project Archetype](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/developing/archetype/overview.html).
 * This project relies on [AEM Core Components](https://experienceleague.adobe.com/docs/experience-manager-core-components/using/introduction.html).
-
-small change
