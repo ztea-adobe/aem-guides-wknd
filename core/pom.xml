@@ -19,7 +19,7 @@
     <parent>
         <groupId>com.adobe.aem.guides</groupId>
         <artifactId>aem-guides-wknd</artifactId>
-        <version>3.2.1-SNAPSHOT</version>
+        <version>3.3.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>aem-guides-wknd.core</artifactId>
@@ -83,7 +83,7 @@ Import-Package: javax.annotation;version=0.0.0,*
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.core</artifactId>
-        </dependency>        
+        </dependency>
         <dependency>
             <groupId>uk.org.lidalia</groupId>
             <artifactId>slf4j-test</artifactId>
@@ -144,7 +144,7 @@ Import-Package: javax.annotation;version=0.0.0,*
         </dependency>
     </dependencies>
 
-      <!-- Additional Profiles for Cloud Service vs. 6.x -->
+    <!-- Additional Profiles for Cloud Service vs. 6.x -->
     <profiles>
         <profile>
             <activation>
@@ -160,10 +160,10 @@ Import-Package: javax.annotation;version=0.0.0,*
         </profile>
         <profile>
             <id>classic</id>
-             <build>
+            <build>
                 <plugins>
                     <plugin>
-                       <!--================
+                        <!--================
                         Relax AEM 6.x Dependencies to allow for broader deployment compatibility for 6.5.x
                         ====================-->
                         <groupId>biz.aQute.bnd</groupId>
@@ -326,5 +326,5 @@ Import-Package: javax.annotation;version=0.0.0,*
                 </dependency>
             </dependencies>
         </profile>
-    </profiles>    
+    </profiles>
 </project>

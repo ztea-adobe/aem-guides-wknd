@@ -8,7 +8,7 @@
     <parent>
         <groupId>com.adobe.aem.guides</groupId>
         <artifactId>aem-guides-wknd</artifactId>
-        <version>3.2.1-SNAPSHOT</version>
+        <version>3.3.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -34,18 +34,34 @@
                     </properties>
                     <filters>
                         <!-- /apps root -->
-                        <filter><root>/apps</root></filter>
-                        <filter><root>/apps/wknd</root></filter>
+                        <filter>
+                            <root>/apps</root>
+                        </filter>
+                        <filter>
+                            <root>/apps/wknd</root>
+                        </filter>
 
                         <!-- Common overlay roots -->
-                        <filter><root>/apps/sling</root></filter>
-                        <filter><root>/apps/cq</root></filter>
-                        <filter><root>/apps/dam</root></filter>
-                        <filter><root>/apps/wcm</root></filter>
-                        <filter><root>/apps/msm</root></filter>
+                        <filter>
+                            <root>/apps/sling</root>
+                        </filter>
+                        <filter>
+                            <root>/apps/cq</root>
+                        </filter>
+                        <filter>
+                            <root>/apps/dam</root>
+                        </filter>
+                        <filter>
+                            <root>/apps/wcm</root>
+                        </filter>
+                        <filter>
+                            <root>/apps/msm</root>
+                        </filter>
 
                         <!-- Immutable context-aware configurations -->
-                        <filter><root>/apps/settings</root></filter>
+                        <filter>
+                            <root>/apps/settings</root>
+                        </filter>
                     </filters>
                 </configuration>
             </plugin>

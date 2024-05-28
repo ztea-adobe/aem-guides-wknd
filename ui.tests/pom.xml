@@ -24,7 +24,7 @@
     <parent>
         <groupId>com.adobe.aem.guides</groupId>
         <artifactId>aem-guides-wknd</artifactId>
-        <version>3.2.1-SNAPSHOT</version>
+        <version>3.3.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -32,7 +32,7 @@
     <name>WKND Sites Project - UI Tests</name>
     <description>UI Tests for WKND Sites Project</description>
     <packaging>pom</packaging>
-   
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -182,37 +182,37 @@
                         <version>1.6.0</version>
                         <executions>
                             <execution>
-                            <id>docker-build</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>exec</goal>
-                            </goals>
-                            <configuration> 
-                                <executable>docker</executable>
-                                <workingDirectory>${project.basedir}</workingDirectory>
-                                <arguments>
-                                    <argument>build</argument>
-                                    <argument>-t</argument>
-                                    <argument>${project.groupId}-${project.artifactId}/ui.tests:${project.version}</argument>
-                                    <argument>.</argument>
-                                </arguments>
-                            </configuration>
+                                <id>docker-build</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>docker</executable>
+                                    <workingDirectory>${project.basedir}</workingDirectory>
+                                    <arguments>
+                                        <argument>build</argument>
+                                        <argument>-t</argument>
+                                        <argument>${project.groupId}-${project.artifactId}/ui.tests:${project.version}</argument>
+                                        <argument>.</argument>
+                                    </arguments>
+                                </configuration>
                             </execution>
                             <execution>
-                            <id>docker-tag</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>exec</goal>
-                            </goals>
-                            <configuration> 
-                                <executable>docker</executable>
-                                <workingDirectory>${project.basedir}</workingDirectory>
-                                <arguments>
-                                    <argument>tag</argument>
-                                    <argument>${project.groupId}-${project.artifactId}/ui.tests:${project.version}</argument>
-                                    <argument>${project.groupId}-${project.artifactId}/ui.tests:latest</argument>
-                                </arguments>
-                            </configuration>
+                                <id>docker-tag</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>docker</executable>
+                                    <workingDirectory>${project.basedir}</workingDirectory>
+                                    <arguments>
+                                        <argument>tag</argument>
+                                        <argument>${project.groupId}-${project.artifactId}/ui.tests:${project.version}</argument>
+                                        <argument>${project.groupId}-${project.artifactId}/ui.tests:latest</argument>
+                                    </arguments>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
