@@ -37,5 +37,5 @@ $include "./default_filters.any"
 /0200 { /type "allow" /url "*/contexthub.pagedata.json" }
 /0201 { /type "allow" /url "/home/users/*.infinity.json" }
 
-/0202 { /type "allow" /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|pdf|png|svg|swf|ttf|woff|woff2|html|mp4|mov|m4v|xml)' /path "/content/*" }
+/0202 { /type "allow" /extension '(css|eot|gif|ico|jpeg|jpg|js|gif|pdf|png|svg|swf|ttf|woff|woff2|html|mp4|mov|m4v|xml|zip|msp|exe)' /path "/content/*" }
 /0203 { /type "deny" /selectors '(feed|rss|pages|languages|blueprint|infinity|tidy|sysview|docview|query|[0-9-]+|jcr:content)' /extension '(xml)' }
