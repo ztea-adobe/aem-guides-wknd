@@ -19,8 +19,18 @@
         <p class="cmp-helloworld__item-label">Text property:</p>
         <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="property">${properties.text}</pre>
     </div>
-    <div class="cmp-helloworld__item" data-sly-use.model="com.adobe.aem.guides.wknd.core.models.HelloWorldModel" data-sly-test="${model.message}">
+    <div class="cmp-helloworld__item" data-sly-use.model="com.adobe.aem.guides.wknd.core.models.HelloWorldModel"
+        data-sly-test="${model.message}">
         <p class="cmp-helloworld__item-label">Model message:</p>
-        <pre class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">${model.message}</pre>
+        <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="model">${model.message}</pre>
     </div>
+    <p data-aue-prop="name" data-aue-type="text">Just A. NameTest</p>
+    <li data-aue-resource="urn:aemconnection:/content/example/list" data-aue-type="component">
+        <p data-aue-prop="name" data-aue-type="text">John Smith</p>
+        <p data-aue-resource="urn:aemconnection:/content/example/another-source" data-aue-prop="title"
+            data-aue-type="text">Photographer</p>
+        <img data-aue-prop="avatar"
+            src="https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg"
+            data-aue-type="image" alt="avatar" />
+    </li>
 </div>
